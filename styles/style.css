@@ -4,12 +4,13 @@
     padding: 20px;
     margin-top: 3%;
     border: 2px solid #ccc;
-    height: 75vh; 
+    height: 75vh;
+    margin-left: 15%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     display: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
   
   .card-1 {
@@ -61,4 +62,13 @@
     margin-top: 3%;
     margin-left: 3%;
     padding-top: 2%;
+  }
+
+  #forecast{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+
   }

@@ -22,10 +22,15 @@
             <input
               class="form-control me-2"
               type="search"
+              id="input"
               placeholder="Enter City Name"
               aria-label="Search"
             />
-            <button class="btn btn-outline-primary me-4" type="submit">
+            <button
+              class="btn btn-outline-primary me-4"
+              id="button"
+              type="button"
+            >
               Search
             </button>
             <button
@@ -46,9 +51,19 @@
     <div class="container">
       <div class="box">
         <div class="row">
-          <div class="col-md-12">
-            <h3>Forecast in <b>New York, US</b></h3>
-            <h4>Friday, December 16 at 09:33 PM</h4>
+          <div class="col-md-10">
+            <h3 id="location"></h3>
+            <h4 id="date-time"></h4>
+          </div>
+          <div class="col-md-2">
+            <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
+              <label class="btn btn-outline-primary" id="celsius-btn">
+                <input type="radio" name="units" value="metric" checked> &deg;C
+              </label>
+              <label class="btn btn-outline-primary" id="fahrenheit-btn">
+                <input type="radio" name="units" value="imperial"> &deg;F
+              </label>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -57,22 +72,21 @@
               <div class="container">
                 <div class="row mt-4">
                   <div class="col-md-7">
-                    <h3>39 F</h3>
+                    <h3 id="temp"></h3>
                   </div>
                   <div class="col-md-5">
-                    <h4>High 41F</h4>
-                    <h4>Low 41F</h4>
+                    <h5 id="high-temp"></h5>
+                    <h5 id="low-temp"></h5>
                   </div>
                 </div>
                 <div class="row mt-5">
                   <div class="col-md-7">
-                    <h6>OverCast Clouds</h6>
-                    <h6>Feel Like 31F</h6>
-                    <h6>Umberalla Required</h6>
+                    <h6 id="description"></h6>
+                    <h6 id="feel-like"></h6>
+                    <h6 id="alerts"></h6>
                   </div>
                   <div class="col-md-5">
-                    <h4>High 41F</h4>
-                    <h4>Low 41F</h4>
+                    <img id="weather-icon" src="" alt="" />
                   </div>
                 </div>
               </div>
@@ -81,11 +95,9 @@
           <div class="col-md-4">
             <div class="card-2">
               <div class="container">
-                <div class="row mt-2">
+                <div class="row mt-4">
                   <div class="col-md-8">
                     <h6>Visibility</h6>
-                    <hr />
-                    <h6>Dew Point</h6>
                     <hr />
                     <h6>Wind</h6>
                     <hr />
@@ -94,15 +106,13 @@
                     <h6>Cloudiness</h6>
                   </div>
                   <div class="col-md-4">
-                    <h6>10km</h6>
+                    <h6 id="visibility"></h6>
                     <hr />
-                    <h6>37 F</h6>
+                    <h6 id="wind-speed"></h6>
                     <hr />
-                    <h6>13mph</h6>
+                    <h6 id="humidity"></h6>
                     <hr />
-                    <h6>92%</h6>
-                    <hr />
-                    <h6>100%</h6>
+                    <h6 id="cloudiness"></h6>
                   </div>
                 </div>
               </div>
@@ -115,12 +125,12 @@
               >
                 <div class="row">
                   <div class="col-md-12">
-                    <img src="" alt="" />
+                    <img id="sunrise-icon" src="" alt="" />
                     <h6 class="mt-1">Sunrise</h6>
-                    <h4 class="mt-1">07:14 AM</h4>
-                    <img class="mt-4" src="" alt="" />
+                    <h4 class="mt-1" id="sunrise-time"></h4>
+                    <img class="mt-4" id="sunset-icon" src="" alt="" />
                     <h6 class="mt-1">Sunset</h6>
-                    <h4 class="mt-1">04:29 PM</h4>
+                    <h4 class="mt-1" id="sunset-time"></h4>
                   </div>
                 </div>
               </div>
@@ -128,56 +138,7 @@
           </div>
         </div>
 
-        <div class="row" style="margin-left: 3px">
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-
-          <div class="card">
-            <h6>Sat</h6>
-            <img src="" alt="" />
-            <h6>46 F</h6>
-            <h6>30 F</h6>
-          </div>
-        </div>
+        <div class="row" id="forecast" style="margin-left: 3px"></div>
       </div>
     </div>
 
@@ -186,5 +147,13 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="./script/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+      function addDarkmodeWidget() {
+        new Darkmode().showWidget();
+      }
+      window.addEventListener("load", addDarkmodeWidget);
+    </script>
   </body>
 </html>
